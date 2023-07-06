@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "servicedog"
+version = "0.1.0"
+description = ""
+authors = ["Mihail <pohilkom65@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+aiogram = {version = "^3.0.0b7", allow-prereleases = true, extras = ["i18n"]}
+apscheduler = "^3.10.1"
+tortoise-orm = "^0.19.3"
+asyncpg = "^0.27.0"
+aerich = "^0.7.1"
+cachetools = "^5.3.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

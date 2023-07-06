@@ -1,0 +1,4 @@
+﻿{
+  "bot_token": "1234:TOKEN",
+  "database_uri": "sqlite://database.sqlite3"
+}
