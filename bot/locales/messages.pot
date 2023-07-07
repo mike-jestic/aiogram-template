@@ -1,0 +1,232 @@
+# Translations template for PROJECT.
+# Copyright (C) 2023 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2023-07-06 15:20+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.11.0\n"
+
+#: bot/markups.py:15
+msgid "📨 Рассылка"
+msgstr ""
+
+#: bot/markups.py:16
+msgid "📈 Статистика"
+msgstr ""
+
+#: bot/markups.py:17
+msgid "👤 Пользователи"
+msgstr ""
+
+#: bot/markups.py:26
+msgid "{} Админ"
+msgstr ""
+
+#: bot/markups.py:27
+msgid "{} Забанен"
+msgstr ""
+
+#: bot/markups.py:28
+msgid "🗑 Удалить с базы"
+msgstr ""
+
+#: bot/markups.py:29 bot/markups.py:60 bot/markups.py:68
+msgid "◀️ Назад"
+msgstr ""
+
+#: bot/markups.py:48
+msgid "👥 Отправить всем"
+msgstr ""
+
+#: bot/markups.py:49
+msgid "👤 Отправить одному"
+msgstr ""
+
+#: bot/markups.py:50
+msgid "❌ Отменить"
+msgstr ""
+
+#: bot/markups.py:58
+msgid "➕ Добавить метрику"
+msgstr ""
+
+#: bot/markups.py:59
+msgid "🗑 Удалить метрику"
+msgstr ""
+
+#: bot/middleware/check_banned.py:24
+msgid "<b>Ваш аккаунт заблокирован!</b>"
+msgstr ""
+
+#: bot/middleware/throttling.py:25
+msgid "Не спамьте!"
+msgstr ""
+
+#: bot/middleware/unprocessed_update.py:21
+msgid "🙁 <i>Команда не найдена, введите /start</i>"
+msgstr ""
+
+#: bot/routers/start.py:20
+msgid "Отлично! Бот запущен!"
+msgstr ""
+
+#: bot/routers/admin/admin.py:15 bot/routers/admin/admin.py:20
+msgid "👨‍💻 Админка"
+msgstr ""
+
+#: bot/routers/admin/get_user.py:20
+msgid "Пришлите id или username пользователя"
+msgstr ""
+
+#: bot/routers/admin/get_user.py:29
+msgid "Пользователь не найден 🙁"
+msgstr ""
+
+#: bot/routers/admin/get_user.py:33
+msgid "Нет"
+msgstr ""
+
+#: bot/routers/admin/get_user.py:33
+msgid "Да"
+msgstr ""
+
+#: bot/routers/admin/get_user.py:35
+msgid ""
+"ID: {}\n"
+"Username: {}\n"
+"Рефералов: {}\n"
+"Метрика: {}\n"
+"Реферер: {}\n"
+"Активный: {}\n"
+"Дата регистрации: {}\n"
+msgstr ""
+
+#: bot/routers/admin/get_user.py:51 bot/routers/admin/mailing.py:81
+msgid "Пользователь не найден"
+msgstr ""
+
+#: bot/routers/admin/get_user.py:61
+msgid "Вы действительно хотите удалить пользователя?"
+msgstr ""
+
+#: bot/routers/admin/mailing.py:19
+msgid ""
+"📨Пришлите сообщение для рассылки (Фото, текст, видео, голосовое "
+"сообщение):\n"
+"\n"
+"<em>Будьте осторожны, текст нужно вводить строго одним сообщением!</em>"
+msgstr ""
+
+#: bot/routers/admin/mailing.py:29
+msgid "<b>Отправить?</b>"
+msgstr ""
+
+#: bot/routers/admin/mailing.py:36
+msgid "<b>Пришлите id или username пользователя</b>"
+msgstr ""
+
+#: bot/routers/admin/mailing.py:41
+msgid "✉ <b>Рассылка успешно отменена ❌</b>"
+msgstr ""
+
+#: bot/routers/admin/mailing.py:48
+msgid "📨 <b>Рассылка запущена </b>"
+msgstr ""
+
+#: bot/routers/admin/mailing.py:64
+msgid ""
+"✉ <b>Рассылка окончена!</b>\n"
+"\n"
+"Доставлено <code>{}</code> пользователям ✅\n"
+"Заблокировали бота <code>{}</code> пользователей ❌"
+msgstr ""
+
+#: bot/routers/admin/mailing.py:87
+msgid "Успешно отправлено ✅"
+msgstr ""
+
+#: bot/routers/admin/mailing.py:89
+msgid "Не отправлено. Пользователь заблокировал бота 🙁"
+msgstr ""
+
+#: bot/routers/admin/metric.py:19
+msgid "Введите код метрики или ссылку для удаления"
+msgstr ""
+
+#: bot/routers/admin/metric.py:31
+msgid "Такой метрики не существует"
+msgstr ""
+
+#: bot/routers/admin/metric.py:34
+msgid "Вы действительно хотите удалить метрику"
+msgstr ""
+
+#: bot/routers/admin/metric.py:42
+msgid "Введите код метрики"
+msgstr ""
+
+#: bot/routers/admin/metric.py:49
+msgid "Код должен содержать A-Z, a-z, 0-9 и хотя бы одну букву"
+msgstr ""
+
+#: bot/routers/admin/metric.py:54
+msgid "Такой код уже существует"
+msgstr ""
+
+#: bot/routers/admin/metric.py:59
+msgid "Введите описание"
+msgstr ""
+
+#: bot/routers/admin/metric.py:71
+msgid "Метрика успешно созданна"
+msgstr ""
+
+#: bot/routers/admin/other.py:21
+msgid "❌ Действие отменено"
+msgstr ""
+
+#: bot/routers/admin/other.py:24
+msgid "❗️ Объект уже удален"
+msgstr ""
+
+#: bot/routers/admin/other.py:28
+msgid "✅ Успешно удалено"
+msgstr ""
+
+#: bot/routers/admin/statistics.py:24
+msgid ""
+"📈 Пользователи\n"
+"Всего: {}\n"
+"Активные: {}\n"
+"Забанено: {}\n"
+"Заблокировали бота: {}\n"
+"\n"
+msgstr ""
+
+#: bot/routers/admin/statistics.py:29
+msgid "📊 Метрика\n"
+msgstr ""
+
+#: bot/routers/admin/statistics.py:37
+msgid "🏆 Топ рефереров\n"
+msgstr ""
+
+#: bot/routers/user/commands.py:10
+msgid "Проверка фильтра"
+msgstr ""
+
+#: bot/routers/user/commands.py:12
+msgid "Фильтр работает!"
+msgstr ""
+
