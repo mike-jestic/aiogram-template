@@ -38,4 +38,7 @@ async def send_statistics(bot: Bot, message: types.Message):
     for n, data in enumerate(top_referrers):
         msg += f"{n+1}. {data.user.url} - {data.referral_count}\n"
 
-    await message.edit_text(msg, reply_markup=markups.add_metric())
+    if message.from_user.is_bot:
+        await message.edit_text(msg, reply_markup=markups.add_event())
+    else:
+        await message.answer(msg, reply_markup=markups.add_event())
