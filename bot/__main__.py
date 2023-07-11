@@ -1,8 +1,10 @@
 import logging
-from . import middleware, routers, services
+from pathlib import Path
+
 from .bot import bot, dispatcher
-from .utils.paths import root_path, routers_path
 from .utils.other import set_commands
+from . import middleware, routers, services
+from .utils.paths import root_path, routers_path
 
 @dispatcher.startup()
 async def on_startup():
@@ -29,24 +31,22 @@ async def on_startup():
 async def on_shutdown():
     await services.dispose(dispatcher)
 
-def import_routers():
-    for router_path in routers_path.glob("*"):
-        if router_path.stem.startswith("__") and router_path.stem.endswith("__"):
+def import_routers(path: Path = routers_path, import_str: str = 'bot.routers.'):
+    handler_file = sorted(
+        path.glob("*"), key=lambda p: p.stem
+    )
+
+    for handler in handler_file:
+        _import = import_str + handler.stem
+
+        if not handler.is_file() and handler.stem.startswith("__") and handler.stem.endswith("__"):
             continue
 
-        if router_path.is_file():
-            __import__(f"bot.routers.{router_path.stem}")
+        if handler.is_file():
+            __import__(_import)
             continue
 
-        sorted_handler_file_paths = sorted(
-            router_path.glob("*.*"), key=lambda p: p.stem
-        )
-
-        for handler_file_path in sorted_handler_file_paths:
-            if not handler_file_path.is_file():
-                continue
-
-            __import__(f"bot.routers.{router_path.stem}.{handler_file_path.stem}")
+        import_routers(handler, _import + '.')
 
 
 def main():
@@ -55,7 +55,7 @@ def main():
     logging.basicConfig(
         # filename=log_filename,
         level=logging.ERROR,
-        format=r"%(asctime)s %(levelname)s %(funcName)s(%(lineno)d) %(message)s",
+        format=u'%(name)s [LINE:%(lineno)d] #%(levelname)-8s [%(asctime)s]  %(message)s',
     )
 
     middleware.setup(dispatcher)
