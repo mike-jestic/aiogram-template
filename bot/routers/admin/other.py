@@ -25,4 +25,4 @@ async def actions_with_user(call: types.CallbackQuery, callback_data: DeleteCall
     
     await entity.delete()
 
-    await call.message.edit_text(_('✅ Успешно удалено'))
+    await call.message.edit_text(_('✅ Успешно удалено'), reply_markup=markups.admin_panel())

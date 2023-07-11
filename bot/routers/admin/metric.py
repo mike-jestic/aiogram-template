@@ -16,7 +16,7 @@ from ...state import CreateMetricState, DelMetricState
 async def admin_callback(call: types.CallbackQuery, state: FSMContext):
     await state.set_state(DelMetricState.waiting_name)
 
-    await call.message.edit_text(_('Введите код метрики или ссылку для удаления'))
+    await call.message.answer(_('Введите код метрики или ссылку для удаления'))
 
 
 @router.message(DelMetricState.waiting_name)
@@ -34,6 +34,7 @@ async def admin_callback(message: types.Message, state: FSMContext):
         _('Вы действительно хотите удалить метрику'),
         reply_markup=markups.question_delete_entity(metric.id, 'metric'))
 
+    await state.clear()
 
 @router.callback_query(Text('add_metric'))
 async def admin_callback(call: types.CallbackQuery, state: FSMContext):

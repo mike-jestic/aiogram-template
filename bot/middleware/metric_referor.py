@@ -20,12 +20,11 @@ class MetricsMiddleware(BaseMiddleware):
                 bot_user = await BotUser.get_or_none(id=event.from_user.id)
 
                 if not bot_user:
-                    ads = await Metric.get_or_none(code=split[1])
-                    referor = await BotUser.get_or_none(id=split[1])
-
-                    if ads:
-                        await BotUser.create(id=event.from_user.id, metric_id=ads.id, username=event.from_user.username)
-                    elif referor:
-                        await BotUser.create(id=event.from_user.id, referrer=referor, username=event.from_user.username)
+                    if split[1].isdecimal():
+                        if referor := await BotUser.get_or_none(id=split[1]):
+                            await BotUser.create(id=event.from_user.id, referrer=referor, username=event.from_user.username)
+                    else:
+                        if ads := await Metric.get_or_none(code=split[1]):
+                            await BotUser.create(id=event.from_user.id, metric_id=ads.id, username=event.from_user.username)
 
         return await handler(event, data)

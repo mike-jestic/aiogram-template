@@ -28,6 +28,7 @@ async def admin_get_user(message: types.Message, state: FSMContext):
     if not user:
         return message.answer(_('Пользователь не найден 🙁'), reply_markup=markups.admin_panel())
     
+    await user.fetch_related('metric')
     count_ref = await BotUser.filter(referrer=user).count()
 
     lst_bool = [_('Нет'), _('Да'),]
@@ -36,7 +37,7 @@ async def admin_get_user(message: types.Message, state: FSMContext):
         'ID: {}\nUsername: {}\nРефералов: {}\nМетрика: {}\nРеферер: {}\nАктивный: {}\nДата регистрации: {}\n'
     ).format(
         user.id, user.url, count_ref, getattr(user.metric, "code",
-        lst_bool[0]), user.referrer or lst_bool[0], lst_bool[user.active],
+        lst_bool[0]), user.referrer_id or lst_bool[0], lst_bool[user.active],
         user.time_reg.strftime("%m.%d.%Y %H:%M")
     )
 
