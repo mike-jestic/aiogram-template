@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "servicedog"
+name = "aiogram-template"
 version = "0.1.0"
 description = ""
 authors = ["Mihail <pohilkom65@gmail.com>"]
