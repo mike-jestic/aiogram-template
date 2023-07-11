@@ -24,7 +24,7 @@ def actions_with_user(user: BotUser):
     markup = (
         InlineKeyboardBuilder()
         .button(text=_('{} Админ').format(symbols[user.admin]), callback_data=ActionsWithUser(user_id=user.id, action='admin').pack())
-        .button(text=_('{} Забанен').format(symbols[user.admin]), callback_data=ActionsWithUser(user_id=user.id, action='ban').pack())
+        .button(text=_('{} Забанен').format(symbols[user.is_banned]), callback_data=ActionsWithUser(user_id=user.id, action='ban').pack())
         .button(text=_('🗑 Удалить с базы'), callback_data=ActionsWithUser(user_id=user.id, action='del').pack())
         .button(text=_('◀️ Назад'), callback_data='back_admin')
         .adjust(2, repeat=True)
