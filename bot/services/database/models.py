@@ -33,7 +33,7 @@ class BotUser(Model):
     admin = fields.BooleanField(default=False)
     time_reg = fields.DatetimeField(auto_now_add=True)
     metric: fields.ForeignKeyRelation[Metric] = fields.ForeignKeyField(
-        "models.Metric", on_delete=fields.CASCADE, related_name="metric", null=True
+        "models.Metric", on_delete=fields.SET_NULL, related_name="metric", null=True
     )
     referrer: fields.ForeignKeyRelation['BotUser'] = fields.ForeignKeyField(
         'models.BotUser', on_delete=fields.SET_NULL, null=True
