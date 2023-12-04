@@ -1,5 +1,4 @@
-from aiogram import types
-from aiogram.filters import Text
+from aiogram import F, types
 from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
 
@@ -14,7 +13,7 @@ async def admin_panel(message: types.Message, state: FSMContext):
     await state.clear()
     await message.answer(_('👨‍💻 Админка'), reply_markup=markups.admin_panel())
 
-@router.callback_query(Text('back_admin'))
+@router.callback_query(F.data == 'back_admin')
 async def back_admin(call: types.CallbackQuery, state: FSMContext):
     await state.clear()
     await call.message.edit_text(_('👨‍💻 Админка'), reply_markup=markups.admin_panel())

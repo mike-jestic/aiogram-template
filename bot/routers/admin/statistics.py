@@ -1,4 +1,4 @@
-from aiogram import Bot, types
+from aiogram import F, Bot, types
 from aiogram.filters import Text
 from aiogram.utils.i18n import gettext as _
 from aiogram.utils.deep_linking import create_start_link
@@ -8,7 +8,7 @@ from ... import markups
 from ...services.database.models import Metric, BotUser
 
 
-@router.callback_query(Text('admin_statistics'))
+@router.callback_query(F.data == 'admin_statistics')
 async def get_statistics_callback(call: types.CallbackQuery, bot: Bot):
     await send_statistics(bot, call.message)
 

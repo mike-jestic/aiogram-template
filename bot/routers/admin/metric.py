@@ -1,6 +1,6 @@
 import re
 
-from aiogram import Bot, types
+from aiogram import F, Bot, types
 from aiogram.filters import Text
 from aiogram.utils.i18n import gettext as _
 from aiogram.fsm.context import FSMContext
@@ -12,7 +12,7 @@ from ...services.database.models import Metric
 from ...state import CreateMetricState, DelMetricState
 
 
-@router.callback_query(Text('del_metric'))
+@router.callback_query(F.data == 'del_metric')
 async def admin_callback(call: types.CallbackQuery, state: FSMContext):
     await state.set_state(DelMetricState.waiting_name)
 

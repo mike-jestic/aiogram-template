@@ -1,7 +1,6 @@
 from contextlib import suppress
 from pydantic.error_wrappers import ValidationError
 
-from aiogram.filters import Text
 from aiogram import F, Bot, types
 from aiogram.fsm.context import FSMContext
 from aiogram.utils.i18n import gettext as _
@@ -14,7 +13,7 @@ from ...callback_data import ActionsWithUser
 from ...services.database.models import BotUser
 
 
-@router.callback_query(Text('admin_get_user'))
+@router.callback_query(F.data =='admin_get_user')
 async def get_user_info(call: types.CallbackQuery, state: FSMContext):
     await state.set_state(GetUserState.waiting_user_id)
     await call.message.edit_text(_('Пришлите id или username пользователя'), reply_markup=markups.back_admin())

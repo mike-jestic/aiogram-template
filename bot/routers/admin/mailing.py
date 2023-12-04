@@ -1,6 +1,5 @@
 import asyncio
 
-from aiogram.filters import Text
 from aiogram import F, Bot, types
 from aiogram.fsm.context import FSMContext
 from aiogram.utils.i18n import gettext as _
@@ -12,7 +11,7 @@ from ...state import MailingState
 from ...services.database.models import BotUser
 
 
-@router.callback_query(Text('admin_mailing'))
+@router.callback_query(F.data == 'admin_mailing')
 async def admin_callback(call: types.CallbackQuery, state: FSMContext):
     await state.set_state(MailingState.waiting_msg)
 

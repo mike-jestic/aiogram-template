@@ -52,6 +52,7 @@ class BotUser(Model):
         if isinstance(query, int):
             field = 'id'
         else:
+            query = query.replace('@', '').replace('https://t.me/', '')
             field = 'id' if query.isdecimal() else 'username'
         user =  await cls.get_or_none(**{field: query})
 
