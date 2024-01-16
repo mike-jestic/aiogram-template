@@ -1,7 +1,6 @@
 import re
 
 from aiogram import F, Bot, types
-from aiogram.filters import Text
 from aiogram.utils.i18n import gettext as _
 from aiogram.fsm.context import FSMContext
 
@@ -36,7 +35,7 @@ async def admin_callback(message: types.Message, state: FSMContext):
 
     await state.clear()
 
-@router.callback_query(Text('add_metric'))
+@router.callback_query(F.data  == 'add_metric')
 async def admin_callback(call: types.CallbackQuery, state: FSMContext):
     await state.set_state(CreateMetricState.waiting_name)
 

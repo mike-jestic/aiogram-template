@@ -1,5 +1,4 @@
 from aiogram import F, Bot, types
-from aiogram.filters import Text
 from aiogram.utils.i18n import gettext as _
 from aiogram.utils.deep_linking import create_start_link
 
